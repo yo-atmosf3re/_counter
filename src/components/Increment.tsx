@@ -2,8 +2,10 @@ import React from 'react';
 
 export function Increment() {
    return (
-      <button>
-         Inc
-      </button>
+      <div className='inc-button'>
+         <button >
+            Inc
+         </button>
+      </div>
    );
 }

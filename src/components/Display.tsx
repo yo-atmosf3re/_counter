@@ -2,8 +2,8 @@ import React from 'react';
 
 export function Display() {
    return (
-      <div>
-
+      <div className='display'>
+         1
       </div>
    );
 }

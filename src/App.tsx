@@ -8,7 +8,10 @@ function App() {
   let state
 
   return (
-    <Counter />
+    <div className='counter'>
+      <Counter />
+    </div>
+  )
 }
 
 export default App;

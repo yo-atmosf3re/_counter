@@ -1,1 +1,24 @@
+.counter {
+   border: 2px solid rgb(0, 147, 245);
+   border-radius: 5px;
+   width: 100px;
+   font-size: 20px;
+   display: grid;
+   grid-template-columns: 1fr;
+   grid-template-areas: 'display display' 'inc res';
+}
 
+.display {
+   grid-area: display;
+   text-align: center;
+}
+
+.inc-button {
+grid-area: inc;
+align-items: end;
+}
+
+.reset-button {
+grid-area: res;
+text-align: right;
+}
