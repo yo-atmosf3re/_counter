@@ -10,6 +10,7 @@ function App() {
   return (
     <div className='counter'>
       <Counter />
+      <Counter />
     </div>
   )
 }
