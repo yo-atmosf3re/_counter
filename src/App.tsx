@@ -5,15 +5,12 @@ import { CounterType, Example } from './Example';
 
 
 function App() {
-
-  let value: CounterType = 0;
-
-  let [counterValue, setCounterValue] = useState<CounterType>(value)
+  let [counterValue, setCounterValue] = useState<number>(0)
 
   return (
     <div className='counter'>
       {/* <Counter /> */}
-      <Example incValue={setCounterValue} counterValue={counterValue} value={counterValue} />
+      <Example setCounterValue={setCounterValue} counterValue={counterValue} value={counterValue} />
     </div>
   )
 }
