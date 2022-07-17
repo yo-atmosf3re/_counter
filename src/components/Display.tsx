@@ -5,7 +5,7 @@ import { DisplayType } from '../App';
 
 export function Display(props: DisplayType) {
    const screen = {
-      color: props.counterValue == props.maxValue ? 'red' : 'white',
+      color: props.counterValue === props.maxValue ? 'red' : 'white',
    }
 
    return (
