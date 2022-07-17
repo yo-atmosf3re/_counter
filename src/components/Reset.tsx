@@ -1,11 +1,10 @@
 import React from 'react';
+import { CounterPropsType } from '../App';
 
-export function Reset() {
+export function Reset(props: CounterPropsType) {
    return (
-      <div className='reset-button'>
-         <button >
-            reset
-         </button>
-      </div>
+      <button className='button' onClick={() => { props.setCounterValue(0) }}>
+         res
+      </button>
    );
 }

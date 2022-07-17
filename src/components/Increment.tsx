@@ -1,11 +1,15 @@
 import React from 'react';
+import { CounterPropsType } from '../App';
 
-export function Increment() {
+
+export function Increment(props: CounterPropsType) {
+   let changeCounterValue = () => {
+      props.setCounterValue(props.counterValue < props.maxValue ? props.counterValue + 1 : props.maxValue)
+   }
+
    return (
-      <div className='inc-button'>
-         <button >
-            Inc
-         </button>
-      </div>
+      <button className='button' onClick={changeCounterValue}>
+         Inc
+      </button>
    );
 }
