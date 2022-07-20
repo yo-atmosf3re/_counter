@@ -20,11 +20,11 @@ function App() {
   let maxValue: CounterType = 5;
 
   const setToLocalStorageHandler = () => {
-    localStorage.
+    localStorage.setItem('counterValue', JSON.stringify(counterValue))
   }
 
   const getFromLocalStorageHandler = () => {
-
+    localStorage.getItem('counterValue')
   }
 
   return (
