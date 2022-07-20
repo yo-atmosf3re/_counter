@@ -13,4 +13,3 @@ export function Counter(props: CounterPropsType) {
       </div>
    );
 }
-

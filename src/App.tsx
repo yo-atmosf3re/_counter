@@ -19,9 +19,22 @@ function App() {
   let [counterValue, setCounterValue] = useState<number>(0)
   let maxValue: CounterType = 5;
 
+  const setToLocalStorageHandler = () => {
+    localStorage.
+  }
+
+  const getFromLocalStorageHandler = () => {
+
+  }
+
   return (
     <div className='counter'>
       <Counter setCounterValue={setCounterValue} counterValue={counterValue} maxValue={maxValue} />
+
+      <div className='locastorageField'>
+        <button className='LocalButton' onClick={setToLocalStorageHandler}>setToLocalStorage</button>
+        <button className='LocalButton' onClick={getFromLocalStorageHandler}>getFromLocalStorage</button>
+      </div>
     </div>
   )
 }
