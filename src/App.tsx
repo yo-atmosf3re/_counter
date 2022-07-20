@@ -21,10 +21,24 @@ function App() {
 
   const setToLocalStorageHandler = () => {
     localStorage.setItem('counterValue', JSON.stringify(counterValue))
+    localStorage.setItem('counterValue + 1', JSON.stringify(counterValue + 1))
   }
 
   const getFromLocalStorageHandler = () => {
-    localStorage.getItem('counterValue')
+    let valueAsString = localStorage.getItem('counterValue');
+    if (valueAsString) {
+      let newValue = JSON.parse(valueAsString)
+      setCounterValue(newValue);
+    }
+  }
+
+  const clearLocalStorageHandler = () => {
+    localStorage.clear()
+    setCounterValue(0);
+  }
+
+  const removeLocalStorageHandler = () => {
+    localStorage.removeItem('counterValue + 1')
   }
 
   return (
@@ -34,6 +48,8 @@ function App() {
       <div className='locastorageField'>
         <button className='LocalButton' onClick={setToLocalStorageHandler}>setToLocalStorage</button>
         <button className='LocalButton' onClick={getFromLocalStorageHandler}>getFromLocalStorage</button>
+        <button className='LocalButton' onClick={clearLocalStorageHandler}>clearLocalStorage</button>
+        <button className='LocalButton' onClick={removeLocalStorageHandler}>removeLocalStorage</button>
       </div>
     </div>
   )
