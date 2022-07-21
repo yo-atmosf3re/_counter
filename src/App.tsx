@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction, useState } from 'react';
+import React, { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import './App.css';
 import { Counter } from './components/Counter';
 
@@ -19,18 +19,16 @@ function App() {
   let [counterValue, setCounterValue] = useState<number>(0)
   let maxValue: CounterType = 5;
 
-  const setToLocalStorageHandler = () => {
-    localStorage.setItem('counterValue', JSON.stringify(counterValue))
-    localStorage.setItem('counterValue + 1', JSON.stringify(counterValue + 1))
-  }
-
-  const getFromLocalStorageHandler = () => {
-    let valueAsString = localStorage.getItem('counterValue');
-    if (valueAsString) {
-      let newValue = JSON.parse(valueAsString)
-      setCounterValue(newValue);
-    }
-  }
+  useEffect(
+    () => {
+      let valueAsString = localStorage.getItem('counterValue');
+      if (valueAsString) {
+        let newValue = JSON.parse(valueAsString)
+        setCounterValue(newValue);
+      }
+    },
+    [])
+  useEffect(() => { localStorage.setItem('counterValue', JSON.stringify(counterValue)) }, [counterValue])
 
   const clearLocalStorageHandler = () => {
     localStorage.clear()
@@ -38,7 +36,7 @@ function App() {
   }
 
   const removeLocalStorageHandler = () => {
-    localStorage.removeItem('counterValue + 1')
+    localStorage.removeItem('counterValue')
   }
 
   return (
@@ -46,8 +44,6 @@ function App() {
       <Counter setCounterValue={setCounterValue} counterValue={counterValue} maxValue={maxValue} />
 
       <div className='locastorageField'>
-        <button className='LocalButton' onClick={setToLocalStorageHandler}>setToLocalStorage</button>
-        <button className='LocalButton' onClick={getFromLocalStorageHandler}>getFromLocalStorage</button>
         <button className='LocalButton' onClick={clearLocalStorageHandler}>clearLocalStorage</button>
         <button className='LocalButton' onClick={removeLocalStorageHandler}>removeLocalStorage</button>
       </div>
