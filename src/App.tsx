@@ -3,15 +3,15 @@ import './App.css';
 import { Counter } from './components/Counter';
 
 function App() {
-  let startCounterValue = () => {
-
+  let startCounterValue = (event: any) => {
+    setCounterValue(event.target.value)
   }
   let maxCounterValue = () => {
-
+    setCounterValue(maxValue)
   }
   let [counterValue, setCounterValue] = useState<number>(0)
 
-  let maxValue = 5;
+  let maxValue = 100;
 
   let entryFieldButton = () => {
 
@@ -42,7 +42,7 @@ function App() {
         counterValue={counterValue}
         maxValue={maxValue}
         maxCounterValue={maxCounterValue}
-        startCounterValue={startCounterValue}
+        startCounterValue={(event) => startCounterValue(event)}
         entryFieldButton={entryFieldButton}
       />
 
