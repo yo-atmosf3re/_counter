@@ -1,8 +1,12 @@
-import React from 'react';
-import { CounterPropsType } from '../App';
+import React, { Dispatch, SetStateAction } from 'react';
 
+type IncrementPropsType = {
+   setCounterValue: Dispatch<SetStateAction<number>>
+   counterValue: number;
+   maxValue: number;
+}
 
-export function Increment(props: CounterPropsType) {
+export function Increment(props: IncrementPropsType) {
    let changeCounterValue = () => {
       props.setCounterValue(props.counterValue < props.maxValue ? props.counterValue + 1 : props.maxValue)
    }
@@ -14,7 +18,7 @@ export function Increment(props: CounterPropsType) {
    const normButton = {}
 
    return (
-      <button style={props.counterValue == props.maxValue ? disButton : normButton} className='button' onClick={changeCounterValue}>
+      <button style={props.counterValue === props.maxValue ? disButton : normButton} className='button' onClick={changeCounterValue}>
          Inc
       </button>
    );

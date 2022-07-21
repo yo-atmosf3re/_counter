@@ -4,11 +4,7 @@ import { Counter } from './components/Counter';
 
 export type CounterType = 0 | 1 | 2 | 3 | 4 | 5;
 
-export type CounterPropsType = {
-  setCounterValue: Dispatch<SetStateAction<number>>
-  counterValue: number;
-  maxValue: number;
-}
+
 
 export type DisplayType = {
   counterValue: number;
@@ -29,19 +25,30 @@ function App() {
     },
     [])
   useEffect(() => { localStorage.setItem('counterValue', JSON.stringify(counterValue)) }, [counterValue])
-
   const clearLocalStorageHandler = () => {
     localStorage.clear()
     setCounterValue(0);
   }
-
   const removeLocalStorageHandler = () => {
     localStorage.removeItem('counterValue')
   }
 
+  let maxCounterValue = () => {
+
+  }
+  let startCounterValue = () => {
+
+  }
+
   return (
     <div className='counter'>
-      <Counter setCounterValue={setCounterValue} counterValue={counterValue} maxValue={maxValue} />
+      <Counter
+        setCounterValue={setCounterValue}
+        counterValue={counterValue}
+        maxValue={maxValue}
+        maxCounterValue={maxCounterValue}
+        startCounterValue={startCounterValue}
+      />
 
       <div className='locastorageField'>
         <button className='LocalButton' onClick={clearLocalStorageHandler}>clearLocalStorage</button>

@@ -1,7 +1,12 @@
-import React from 'react';
-import { CounterPropsType } from '../App';
+import React, { Dispatch, SetStateAction } from 'react';
 
-export function Reset(props: CounterPropsType) {
+type ResetPropsType = {
+   setCounterValue: Dispatch<SetStateAction<number>>
+   counterValue: number;
+   maxValue: number;
+}
+
+export function Reset(props: ResetPropsType) {
    const initialValue = {
       pointerEvents: 'none',
       cursor: 'default',
@@ -9,7 +14,7 @@ export function Reset(props: CounterPropsType) {
    }
    const normButton = {}
    return (
-      <button style={props.counterValue == 0 ? initialValue : normButton} className='button' onClick={() => { props.setCounterValue(0) }}>
+      <button style={props.counterValue === 0 ? initialValue : normButton} className='button' onClick={() => { props.setCounterValue(0) }}>
          Res
       </button>
    );
