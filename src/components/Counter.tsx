@@ -11,6 +11,7 @@ export type CounterPropsType = {
    maxValue: number;
    maxCounterValue: () => void;
    startCounterValue: () => void;
+   entryFieldButton: () => void;
 }
 
 export function Counter(props: CounterPropsType) {
@@ -19,8 +20,7 @@ export function Counter(props: CounterPropsType) {
          <Display maxValue={props.maxValue} counterValue={props.counterValue} />
          <Increment maxValue={props.maxValue} setCounterValue={props.setCounterValue} counterValue={props.counterValue} />
          <Reset maxValue={props.maxValue} setCounterValue={props.setCounterValue} counterValue={props.counterValue} />
-         <EntryField maxCounterValue={props.maxCounterValue}
-            startCounterValue={props.startCounterValue} />
+         <EntryField maxCounterValue={props.maxCounterValue} startCounterValue={props.startCounterValue} entryFieldButton={props.entryFieldButton} />
       </div>
    );
 }

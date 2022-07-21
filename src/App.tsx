@@ -1,19 +1,21 @@
-import React, { Dispatch, SetStateAction, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 import { Counter } from './components/Counter';
 
-export type CounterType = 0 | 1 | 2 | 3 | 4 | 5;
-
-
-
-export type DisplayType = {
-  counterValue: number;
-  maxValue: number;
-}
-
 function App() {
+  let startCounterValue = () => {
+
+  }
+  let maxCounterValue = () => {
+
+  }
   let [counterValue, setCounterValue] = useState<number>(0)
-  let maxValue: CounterType = 5;
+
+  let maxValue = 5;
+
+  let entryFieldButton = () => {
+
+  }
 
   useEffect(
     () => {
@@ -33,13 +35,6 @@ function App() {
     localStorage.removeItem('counterValue')
   }
 
-  let maxCounterValue = () => {
-
-  }
-  let startCounterValue = () => {
-
-  }
-
   return (
     <div className='counter'>
       <Counter
@@ -48,6 +43,7 @@ function App() {
         maxValue={maxValue}
         maxCounterValue={maxCounterValue}
         startCounterValue={startCounterValue}
+        entryFieldButton={entryFieldButton}
       />
 
       <div className='locastorageField'>

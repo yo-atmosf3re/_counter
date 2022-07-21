@@ -1,7 +1,9 @@
 import React from 'react';
-import { DisplayType } from '../App';
 
-
+export type DisplayType = {
+   counterValue: number;
+   maxValue: number;
+}
 
 export function Display(props: DisplayType) {
    const screen = {
