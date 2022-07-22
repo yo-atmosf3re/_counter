@@ -9,7 +9,7 @@ export type CounterPropsType = {
    setCounterValue: Dispatch<SetStateAction<number>>
    counterValue: number;
    maxValue: number;
-   maxCounterValue: () => void;
+   maxCounterValue: (event: any) => void;
    startCounterValue: (event: any) => void;
    entryFieldButton: () => void;
 }
