@@ -10,7 +10,7 @@ export type CounterPropsType = {
    counterValue: number;
    maxValue: number;
    maxCounterValue: (event: any) => void;
-   startCounterValue: (event: any) => void;
+   startCounterValue: () => void;
    entryFieldButton: () => void;
 }
 
