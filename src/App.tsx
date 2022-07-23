@@ -4,17 +4,17 @@ import { Counter } from './components/Counter';
 
 function App() {
   let startCounterValue = () => {
-    setCounterValue(1)
+
   }
   let maxCounterValue = (event: { target: { value: React.SetStateAction<number>; }; }) => {
     setMaxValue(event.target.value)
   }
-  let [counterValue, setCounterValue] = useState<number>(0)
-  let [maxValue, setMaxValue] = useState<number>(0)
+  let [counterValue, setCounterValue] = useState<number>(0);
+  let [maxValue, setMaxValue] = useState<number>(0);
+  let [startValue, setStartValue] = useState<number>(0);
 
   let entryFieldButton = () => {
-    setCounterValue(counterValue)
-    setMaxValue(maxValue)
+
   }
 
   useEffect(
@@ -41,6 +41,7 @@ function App() {
         setCounterValue={setCounterValue}
         counterValue={counterValue}
         maxValue={maxValue}
+        setMaxValue={setMaxValue}
         maxCounterValue={(event) => maxCounterValue(event)}
         startCounterValue={startCounterValue}
         entryFieldButton={entryFieldButton}
