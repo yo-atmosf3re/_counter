@@ -10,6 +10,9 @@ export function Increment(props: IncrementPropsType) {
    let changeCounterValue = () => {
       props.setCounterValue(props.counterValue < props.maxValue ? props.counterValue + 1 : props.maxValue)
    }
+   let styleDisplayCondition = () => {
+      props.counterValue === props.maxValue ? disButton : normButton
+   }
    const disButton = {
       pointerEvents: 'none',
       cursor: 'default',
@@ -18,8 +21,6 @@ export function Increment(props: IncrementPropsType) {
    const normButton = {}
 
    return (
-      <button style={props.counterValue === props.maxValue ? disButton : normButton} className='button' onClick={changeCounterValue}>
-         Inc
-      </button>
+      <button style={styleDisplayCondition} className='button' onClick={changeCounterValue}></button>
    );
 }
