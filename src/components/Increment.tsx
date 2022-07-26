@@ -1,7 +1,6 @@
 import React, { Dispatch, SetStateAction } from 'react';
 
 type IncrementPropsType = {
-   setCounterValue: (value: number) => void
    counterValue: number;
    maxValue: number;
    setStartValueCounterHandler: () => void
@@ -14,6 +13,6 @@ export function Increment(props: IncrementPropsType) {
    let styleDisplayCondition = props.counterValue === props.maxValue ? disButton : normButton;
 
    return (
-      <button style={styleDisplayCondition} className='button' onClick={props.setStartValueCounterHandler} />
+      <button style={styleDisplayCondition} disabled={props.counterValue > props.maxValue} className='button' onClick={props.setStartValueCounterHandler} >Inc</button>
    );
 }
