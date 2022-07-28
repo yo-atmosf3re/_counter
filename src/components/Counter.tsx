@@ -1,4 +1,5 @@
 import React, { ChangeEvent } from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import { Display } from './Display';
 import { EntryField } from './EntryField';
@@ -27,5 +28,6 @@ export function Counter(props: CounterPropsType) {
          <Reset maxValue={props.maxValue} counterValue={props.counterValue} resetStartValueHandler={props.resetStartValueHandler} />
          <EntryField maxValue={props.maxValue} counterValue={props.counterValue} startValue={props.startValue} counterMaxValueHandler={props.counterMaxValueHandler} counterStartValueHandler={props.counterStartValueHandler} setAllValueHandler={props.setAllValueHandler} />
       </div >
+
    );
 }

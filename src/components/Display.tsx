@@ -15,7 +15,3 @@ export function Display(props: DisplayType) {
       <span className='screen'>{displayCondition}</span>
    );
 }
-
-// const screen = {
-//    color: props.counterValue === props.maxValue ? 'red' : 'white',
-// }

@@ -29,6 +29,7 @@ body {
    background-color: rgb(0, 147, 245);
    color: white;
    margin: 5px auto;
+   padding: 1px;
    width: 30%;
    border-radius: 5px;
    border: 1px solid white;
@@ -86,4 +87,8 @@ body {
 
 .button:active {
    background-color: rgb(2, 76, 126);
+}
+
+.navLink a {
+   text-decoration: none;
 }
