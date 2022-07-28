@@ -1,5 +1,8 @@
 body {
-   background-color: rgb(0, 0, 0);
+   background-color: rgb(2, 49, 80);
+   max-width: 100%;
+   display: grid;
+   justify-content: center;
 }
 
 .counter {
@@ -59,7 +62,7 @@ body {
 }
 
 .locastorageField {
-   background-color: rgb(1, 149, 248);
+   background-color: rgb(9, 133, 216);
    height: 100%;
    padding: 3px 0;
    

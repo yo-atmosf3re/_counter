@@ -1,4 +1,5 @@
 import React, { ChangeEvent, useCallback, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import './App.css';
 import { Counter } from './components/Counter';
 
@@ -61,7 +62,6 @@ function App() {
         resetStartValueHandler={resetStartValueHandler}
         setAllValueHandler={setAllValueHandler}
       />
-
       <div className='locastorageField'>
         <button className='LocalButton' onClick={clearLocalStorageHandler}>clearLocalStorage</button>
         <button className='LocalButton' onClick={removeLocalStorageHandler}>removeLocalStorage</button>
