@@ -19,7 +19,6 @@ export function EntryField(props: EntryFieldPropsType) {
          <br />
          Start value:<input type='number' className='entryfield-input' onChange={props.counterStartValueHandler} />
          <button disabled={props.startValue === props.maxValue} className='entryfield-button' onClick={props.setAllValueHandler}>{errorButton}</button>
-         <a href='/counterSetting'></a>
       </div>
    );
 }
