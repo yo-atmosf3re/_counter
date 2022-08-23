@@ -1,11 +1,15 @@
 import React, { ChangeEvent, useCallback, useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import './App.css';
+import { AppStateType } from './bll/store';
 import { Counter } from './components/Counter';
 
 function App() {
   let [maxValue, setMaxValue] = useState<number>(0);
   let [counterValue, setCounterValue] = useState<number>(0);
   let [startValue, setStartValue] = useState<number>(0);
+
+  const value = useSelector<AppStateType, number>()
 
   const counterMaxValueHandler = useCallback((event: ChangeEvent<HTMLInputElement>) => {
     const value = Number(event.currentTarget.value)
