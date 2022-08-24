@@ -9,7 +9,7 @@ function App() {
   let [counterValue, setCounterValue] = useState<number>(0);
   let [startValue, setStartValue] = useState<number>(0);
 
-  const value = useSelector<AppStateType, number>()
+  const value = useSelector<AppStateType, number>(state => state.counter.value)
 
   const counterMaxValueHandler = useCallback((event: ChangeEvent<HTMLInputElement>) => {
     const value = Number(event.currentTarget.value)
