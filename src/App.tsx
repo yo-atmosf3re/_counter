@@ -1,6 +1,8 @@
 import React, { ChangeEvent, useCallback, useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import './App.css';
+import { incCounterValueAC } from './bll/counter-reducer';
 import { AppStateType } from './bll/store';
 import { Counter } from './components/Counter';
 
@@ -10,6 +12,7 @@ function App() {
   let [startValue, setStartValue] = useState<number>(0);
 
   const value = useSelector<AppStateType, number>(state => state.counter.value)
+  const dispatch = useDispatch()
 
   const counterMaxValueHandler = useCallback((event: ChangeEvent<HTMLInputElement>) => {
     const value = Number(event.currentTarget.value)
@@ -22,6 +25,7 @@ function App() {
 
   const setStartValueCounterHandler = useCallback(() => {
     setStartValue(startValue + 1)
+    dispatch(incCounterValueAC())
   }, [setStartValue, startValue])
   const resetStartValueHandler = useCallback(() => {
     setStartValue(0)
@@ -64,6 +68,7 @@ function App() {
         setStartValueCounterHandler={setStartValueCounterHandler}
         resetStartValueHandler={resetStartValueHandler}
         setAllValueHandler={setAllValueHandler} />
+      {/* <Counter /> */}
 
       <div className='locastorageField'>
         <button className='LocalButton' onClick={clearLocalStorageHandler}>clearLocalStorage</button>
