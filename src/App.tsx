@@ -1,22 +1,11 @@
 import React, { ChangeEvent, useCallback, useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { useSelector } from 'react-redux';
-import { AnyAction, Dispatch } from 'redux';
 import './App.css';
-import { ActionTypes, incCounterValueTC } from './bll/counter-reducer';
-import { AppStateType } from './bll/store';
 import { Counter } from './components/Counter';
 
 function App() {
   let [maxValue, setMaxValue] = useState<number>(0);
   let [counterValue, setCounterValue] = useState<number>(0);
   let [startValue, setStartValue] = useState<number>(0);
-
-  const value = useSelector<AppStateType, number>(state => state.counter.value)
-  const dispatch: any = useDispatch()
-  useEffect(() => {
-    dispatch(setValueFromLocalStorageTC())
-  }, [])
 
   const counterMaxValueHandler = useCallback((event: ChangeEvent<HTMLInputElement>) => {
     const value = Number(event.currentTarget.value)
@@ -29,7 +18,6 @@ function App() {
 
   const setStartValueCounterHandler = useCallback(() => {
     setStartValue(startValue + 1)
-    dispatch(incCounterValueTC())
   }, [setStartValue, startValue])
   const resetStartValueHandler = useCallback(() => {
     setStartValue(0)
@@ -72,7 +60,6 @@ function App() {
         setStartValueCounterHandler={setStartValueCounterHandler}
         resetStartValueHandler={resetStartValueHandler}
         setAllValueHandler={setAllValueHandler} />
-      {/* <Counter /> */}
 
       <div className='locastorageField'>
         <button className='LocalButton' onClick={clearLocalStorageHandler}>clearLocalStorage</button>
@@ -81,6 +68,10 @@ function App() {
     </div >
   )
 }
+
+
+// const value = useSelector<AppStateType, number>(state => state.counter.value)
+//   const dispatch: any = useDispatch()
 
 export default App;
 
