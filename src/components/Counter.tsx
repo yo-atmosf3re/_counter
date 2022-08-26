@@ -1,10 +1,13 @@
 import React, { ChangeEvent } from 'react';
+import { useSelector } from 'react-redux';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { AppStateType } from '../redux/store';
+import { Display } from './itemsCounter/Display';
+import { EntryField } from './itemsCounter/EntryField';
+import { Increment } from './itemsCounter/Increment';
 
-import { Display } from './Display';
-import { EntryField } from './EntryField';
-import { Increment } from './Increment';
-import { Reset } from './Reset';
+
+import { Reset } from './itemsCounter/Reset';
 
 export type CounterPropsType = {
    counterValue: number
@@ -15,7 +18,7 @@ export type CounterPropsType = {
    setMaxValue: (value: number) => void
    counterMaxValueHandler: (event: ChangeEvent<HTMLInputElement>) => void
    counterStartValueHandler: (event: ChangeEvent<HTMLInputElement>) => void
-   setStartValueCounterHandler: () => void
+   setStartValueCounterHandler: (startValue: number) => void
    resetStartValueHandler: () => void
    setAllValueHandler: () => void
 }
@@ -31,3 +34,14 @@ export function Counter(props: CounterPropsType) {
 
    );
 }
+
+
+// export const Counter = React.memo(() => {
+//    const { counterValue, maxValue, startValue } = useSelector((state: AppStateType) => state.counter)
+
+//    return (
+//       <div>
+//          <Counter />
+//       </div>
+//    )
+// })

@@ -13,18 +13,19 @@ type InitialStateType = {
    maxValue: number
    startValue: number
 }
+export type CounterType = typeof initialState;
 
 export const counterReducer = (state: InitialStateType = initialState, action: ActionTypes) => {
    switch (action.type) {
       case 'SET-COUNTER-MAX-VALUE': {
          let stateCopy = { ...state };
-         const value = Number(action.event.currentTarget.value)
+         const value = action.maxValue
          stateCopy.maxValue = value;
          return stateCopy;
       }
       case 'SET-COUNTER-START-VALUE': {
          let stateCopy = { ...state };
-         const value = Number(action.event.currentTarget.value)
+         const value = action.startValue
          stateCopy.startValue = value
          return stateCopy;
       }
@@ -50,11 +51,11 @@ export const counterReducer = (state: InitialStateType = initialState, action: A
    }
 }
 
-const counterMaxValueAC = (event: ChangeEvent<HTMLInputElement>) => ({ type: 'SET-COUNTER-MAX-VALUE', event } as const)
-const counterStartValueAC = (event: ChangeEvent<HTMLInputElement>) => ({ type: 'SET-COUNTER-START-VALUE', event } as const)
-const increaseStartValueAC = () => ({ type: 'INCREASE-COUNTER-START-VALUE' } as const)
-const resetStartValueAC = () => ({ type: 'RESET-COUNTER-START-VALUE' } as const)
-const setAllValueAC = () => ({ type: 'SET-ALL-COUNTER-VALUE' } as const)
+export const counterMaxValueAC = (maxValue: number) => ({ type: 'SET-COUNTER-MAX-VALUE', maxValue } as const)
+export const counterStartValueAC = (startValue: number) => ({ type: 'SET-COUNTER-START-VALUE', startValue } as const)
+export const increaseStartValueAC = (startValue: number) => ({ type: 'INCREASE-COUNTER-START-VALUE', startValue } as const)
+export const resetStartValueAC = (startValue: number) => ({ type: 'RESET-COUNTER-START-VALUE', startValue } as const)
+export const setAllValueAC = (counterValue: number) => ({ type: 'SET-ALL-COUNTER-VALUE', counterValue } as const)
 
 type CounterMaxValueActionType = ReturnType<typeof counterMaxValueAC>
 type CounterStartValueActionType = ReturnType<typeof counterStartValueAC>
@@ -62,3 +63,4 @@ type IncreaseStartValueCounterActionType = ReturnType<typeof increaseStartValueA
 type ResetStartValueActionType = ReturnType<typeof resetStartValueAC>
 type SetAllValueActionType = ReturnType<typeof setAllValueAC>
 export type ActionTypes = CounterMaxValueActionType | CounterStartValueActionType | IncreaseStartValueCounterActionType | ResetStartValueActionType | SetAllValueActionType;
+
