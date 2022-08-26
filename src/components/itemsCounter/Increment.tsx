@@ -1,9 +1,9 @@
-import React, { Dispatch, SetStateAction } from 'react';
+import React, { Dispatch, MouseEventHandler, SetStateAction } from 'react';
 
 type IncrementPropsType = {
    counterValue: number;
    maxValue: number;
-   setStartValueCounterHandler: () => void
+   setStartValueCounterHandler: (startValue: any) => void
 }
 
 export function Increment(props: IncrementPropsType) {
