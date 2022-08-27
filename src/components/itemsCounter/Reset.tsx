@@ -3,7 +3,7 @@ import React, { Dispatch, SetStateAction } from 'react';
 type ResetPropsType = {
    counterValue: number;
    maxValue: number;
-   resetStartValueHandler: () => void
+   resetStartValueHandler: any
 }
 
 export function Reset(props: ResetPropsType) {

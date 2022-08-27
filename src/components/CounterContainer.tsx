@@ -2,21 +2,16 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 import {
-   counterMaxValueAC,
-   counterStartValueAC,
-   CounterType,
-   increaseStartValueAC,
-   resetStartValueAC,
-   setAllValueAC
+   counterMaxValueAC, counterStartValueAC, CounterType, increaseStartValueAC, InitialStateType, resetStartValueAC, setAllValueAC
 } from '../redux/counter-reducer';
 import { AppStateType } from '../redux/store';
 import { Counter } from './Counter';
 
-type mapStateToPropsType = {
+type MapStateToPropsType = {
    counter: CounterType
 }
 
-type mapDispathToPropsType = {
+type MapDispathToPropsType = {
    setCounterMaxValue: (maxValue: number) => void
    setCounterStartValue: (startValue: number) => void
    increaseCounterStartValue: (startValue: number) => void
@@ -24,13 +19,12 @@ type mapDispathToPropsType = {
    setAllCounterValue: (counterValue: number) => void
 }
 
-const mapStateToProps = (state: AppStateType): mapStateToPropsType => {
-   return {
-      counter: state.counter
-   }
-}
+export type CounterPropsType = MapDispathToPropsType & InitialStateType;
 
-const mapDispathToProps = (dispatch: Dispatch): mapDispathToPropsType => {
+const mapStateToProps = (state: AppStateType): InitialStateType => state.counter
+
+
+const mapDispathToProps = (dispatch: Dispatch): MapDispathToPropsType => {
    return {
       setCounterMaxValue: (maxValue: number) => {
          dispatch(counterMaxValueAC(maxValue))

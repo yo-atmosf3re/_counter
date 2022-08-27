@@ -8,14 +8,15 @@ const initialState = {
    startValue: 0,
 }
 
-type InitialStateType = {
+export type InitialStateType = {
    counterValue: number
    maxValue: number
    startValue: number
 }
+
 export type CounterType = typeof initialState;
 
-export const counterReducer = (state: InitialStateType = initialState, action: ActionTypes) => {
+export const counterReducer = (state: InitialStateType = initialState, action: ActionTypes): InitialStateType => {
    switch (action.type) {
       case 'SET-COUNTER-MAX-VALUE': {
          let stateCopy = { ...state };

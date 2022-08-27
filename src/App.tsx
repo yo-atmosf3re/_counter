@@ -72,7 +72,7 @@ import { AppStateType } from './redux/store';
 //   )
 // }
 
-export const App: any = React.memo(() => {
+export const App = React.memo(() => {
   const { counterValue, maxValue, startValue } = useSelector((state: AppStateType) => state.counter)
 
   return (
