@@ -1,9 +1,9 @@
 import React, { ChangeEvent } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { Display } from './itemsCounter/Display';
-import { EntryField } from './itemsCounter/EntryField';
-import { Increment } from './itemsCounter/Increment';
-import { Reset } from './itemsCounter/Reset';
+import { Display } from './ItemsCounter/Display/Display';
+import { EntryField } from './ItemsCounter/EntryField/EntryField';
+import { Increment } from './ItemsCounter/Increment/Increment';
+import { Reset } from './ItemsCounter/Reset/Reset';
 
 export type CounterPropsType = {
    counterValue: number

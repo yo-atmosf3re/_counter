@@ -13,7 +13,7 @@ export function Reset(props: ResetPropsType) {
 
    return (
       <button style={styleDisplayCondition} className='button' onClick={props.resetStartValueHandler}>
-         Res
+         Reset
       </button>
    );
 }

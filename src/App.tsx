@@ -1,6 +1,6 @@
-import React, { ChangeEvent, useCallback, useEffect, useState } from 'react';
+import React, { ChangeEvent, useCallback, useState } from 'react';
 import './App.css';
-import { Counter } from './components/Counter';
+import { Counter } from './components/Counter/Counter';
 
 function App() {
   let [maxValue, setMaxValue] = useState<number>(0);
@@ -28,24 +28,6 @@ function App() {
     setCounterValue(0)
   }, [setStartValue, counterValue, setCounterValue])
 
-  useEffect(
-    () => {
-      let valueAsString = localStorage.getItem('counterValue');
-      if (valueAsString) {
-        let newValue = JSON.parse(valueAsString)
-        setCounterValue(newValue);
-      }
-    },
-    [])
-  useEffect(() => { localStorage.setItem('counterValue', JSON.stringify(counterValue)) }, [counterValue])
-  const clearLocalStorageHandler = () => {
-    localStorage.clear()
-    setCounterValue(0);
-  }
-  const removeLocalStorageHandler = () => {
-    localStorage.removeItem('counterValue')
-  }
-
   return (
     <div className='counter'>
       <Counter
@@ -60,14 +42,28 @@ function App() {
         setStartValueCounterHandler={setStartValueCounterHandler}
         resetStartValueHandler={resetStartValueHandler}
         setAllValueHandler={setAllValueHandler} />
-
-      <div className='locastorageField'>
-        <button className='LocalButton' onClick={clearLocalStorageHandler}>clearLocalStorage</button>
-        <button className='LocalButton' onClick={removeLocalStorageHandler}>removeLocalStorage</button>
-      </div>
     </div >
   )
 }
+
+
+// useEffect(
+//   () => {
+//     let valueAsString = localStorage.getItem('counterValue');
+//     if (valueAsString) {
+//       let newValue = JSON.parse(valueAsString)
+//       setCounterValue(newValue);
+//     }
+//   },
+//   [])
+// useEffect(() => { localStorage.setItem('counterValue', JSON.stringify(counterValue)) }, [counterValue])
+// const clearLocalStorageHandler = () => {
+//   localStorage.clear()
+//   setCounterValue(0);
+// }
+// const removeLocalStorageHandler = () => {
+//   localStorage.removeItem('counterValue')
+// }
 
 export default App;
 
