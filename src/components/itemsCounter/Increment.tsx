@@ -13,6 +13,6 @@ export function Increment(props: IncrementPropsType) {
    let styleDisplayCondition = props.counterValue === props.maxValue ? disButton : normButton;
 
    return (
-      <button style={styleDisplayCondition} disabled={props.counterValue > props.maxValue} className='button' onClick={props.setStartValueCounterHandler} >Inc</button>
+      <button style={styleDisplayCondition} disabled={props.counterValue > props.maxValue} className='button' onClick={props.setStartValueCounterHandler} >Increase</button>
    );
 }

@@ -62,8 +62,8 @@ function App() {
         setAllValueHandler={setAllValueHandler} />
 
       <div className='locastorageField'>
-        <button className='LocalButton' onClick={clearLocalStorageHandler}>clearLocalStorage</button>
-        <button className='LocalButton' onClick={removeLocalStorageHandler}>removeLocalStorage</button>
+        <button className='LocalButton' onClick={clearLocalStorageHandler}>Clear localStorage</button>
+        <button className='LocalButton' onClick={removeLocalStorageHandler}>Remove localStorage</button>
       </div>
     </div >
   )

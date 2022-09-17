@@ -15,7 +15,7 @@ export function EntryField(props: EntryFieldPropsType) {
 
    return (
       <div className='entryfield'>
-         Max value: <input type='number' className='entryfield-input' onChange={props.counterMaxValueHandler} />
+         Max value:<input type='number' className='entryfield-input' onChange={props.counterMaxValueHandler} />
          <br />
          Start value:<input type='number' className='entryfield-input' onChange={props.counterStartValueHandler} />
          <button disabled={props.startValue === props.maxValue} className='entryfield-button' onClick={props.setAllValueHandler}>{errorButton}</button>
