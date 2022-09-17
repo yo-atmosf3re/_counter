@@ -32,8 +32,8 @@ export const counterReducer = (state: InitialStateType = initialState, action: A
       }
       case 'INCREASE-COUNTER-START-VALUE': {
          let stateCopy = { ...state }
-         let incValue = stateCopy.startValue + 1;
-         stateCopy.startValue = incValue
+         let incValue = stateCopy.counterValue + 1;
+         stateCopy.counterValue = incValue
          return stateCopy;
       }
       case 'RESET-COUNTER-START-VALUE': {
