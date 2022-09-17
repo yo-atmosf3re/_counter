@@ -12,7 +12,7 @@ const initialState = {
    startValue: 0,
 }
 
-export const counterReducer = (state: CounterType, action: ActionsTypes): CounterType => {
+export const counterReducer = (state: CounterType = initialState, action: ActionsTypes): CounterType => {
    switch (action.type) {
       case COUNTER_VALUE: { return { ...state, counterValue: action.counterValue } }
       case MAX_VALUE: { return { ...state, maxValue: action.maxValue } }
