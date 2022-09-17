@@ -1,9 +1,9 @@
 import React, { ChangeEvent } from 'react';
 
 type EntryFieldPropsType = {
-   counterMaxValueHandler: any
-   counterStartValueHandler: any
-   setAllValueHandler: (counterValue: number) => void
+   counterMaxValueHandler: (event: ChangeEvent<HTMLInputElement>) => void
+   counterStartValueHandler: (event: ChangeEvent<HTMLInputElement>) => void
+   setAllValueHandler: () => void
    counterValue: number;
    maxValue: number;
    startValue: number;
